@@ -40,12 +40,18 @@
                 $file = 'biennacional/opciones.php';   
             }elseif ($_GET['page'] == 'home') {
                 $file = 'home.php';   
-            }elseif ($_GET['page'] == 'reg2') {
-                $file = 'registrar/reg2.php';   
-            }elseif ($_GET['page'] == 'listadorefer') {
-                $file = 'registrar/ver_refer.php';   
-            }elseif ($_GET['page'] == 'datos') {
-                $file = 'usuario/datos.php';   
+            }elseif ($_GET['page'] == 'recepcion') {
+                $file = 'recepcion/recepcion.php';   
+            }elseif ($_GET['page'] == 'recepcion') {
+                $file = 'recepcion/recepcion.php';   
+            }elseif ($_GET['page'] == 'almacen') {
+                $file = 'almacen/almacen.php';   
+            }elseif ($_GET['page'] == 'produccion') {
+                $file = 'produccion/produccion.php';   
+            }elseif ($_GET['page'] == 'trabajo') {
+                $file = 'trabajo/trabajo.php';   
+            }elseif ($_GET['page'] == 'reportes') {
+                $file = 'reportes/reportes.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -151,37 +157,44 @@
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
+                     <div><h6><span style="color: #fff !important;"> <?php  echo $_SESSION['nombre'];?><span> <h6></div> 
                     <ul class="navbar-nav my-lg-0">
                         <!-- ============================================================== -->
                         <!-- Comment -->
-                        <!-- ============================================================== -->
+                      
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-email"></i>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-settings"></i>
                                 <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                             </a>
+
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
                                 <ul>
                                     <li>
-                                        <div class="drop-title">Notificaciones</div>
+                                        <div class="drop-title">Configuraciones</div>
                                     </li>
                                     <li>
-                                        <div class="message-center">
+                                        <div class="message-center ">
                                             <!-- Message -->
                                             <a href="javascript:void(0)">
-                                                <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5>Pagar Pin</h5> <span class="mail-desc">Recuerde pagar su pin</span> <span class="time">9:30 AM</span> </div>
+                                                <i class="icon-plus"></i>
+                                                <div class="mail-contnet ">
+                                                    <h6>Crear usuario</h6>  </div>
                                             </a>
                                             <!-- Message -->
-                                              <a href="javascript:void(0)">
-                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
+                                             <a href="javascript:void(0)">
+                                                <i class="icon-reload"></i>
                                                 <div class="mail-contnet">
-                                                    <h5>Nuevo referido</h5> <span class="mail-desc">Tienes un nuevo referido</span> <span class="time">9:02 AM</span> </div>
+                                                    <h6>Cambiar contraseña</h6>  </div>
                                             </a>
-                                            <a href="javascript:void(0)">
-                                                <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
+                                           <a href="javascript:void(0)">
+                                                <i class="icon-reload"></i>
                                                 <div class="mail-contnet">
-                                                    <h5>Nuevos eventos</h5> <span class="mail-desc">Hay nueva promocion para ti!</span> <span class="time">9:10 AM</span> </div>
+                                                    <h6>Cambiar Privilegios</h6>  </div>
+                                            </a>
+                                             <a href="javascript:void(0)">
+                                                <i class="icon-close"></i>
+                                                <div class="mail-contnet">
+                                                    <h6>Eliminar funciones</h6>  </div>
                                             </a>
                                             <!-- Message -->
                                            
@@ -210,7 +223,7 @@
                         <!-- ============================================================== -->
                         <!-- End mega menu -->
                         <!-- ============================================================== -->
-                        <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                       
                     </ul>
                 </div>
             </nav>
@@ -240,53 +253,43 @@
                           
                         </li>
                         <li>
-                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="icon-user"></i>
-                                <span class="hide-menu">Clientes
+                            <a class="waves-effect waves-dark" href="?page=recepcion" aria-expanded="false">
+                                <i class="icon-note"></i>
+                                <span class="hide-menu">Recepcion
                                     <!--<span class="badge badge-pill badge-cyan ml-auto">4</span>-->
                                 </span>
                             </a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li>
-                                    <a href="?page=reg2">Registrar cliente</a>
-                                </li>
-                                <li>
-                                    <a href="?page=listadorefer">clientes registrados</a>
-                                </li>
-                                
-                              
-                            </ul>
+                           
                         </li>
                                            
                        
                         
                           <li>
-                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="icon-game-controller"></i>
-                                <span class="hide-menu">Entrenamiento</span>
+                            <a class="waves-effect waves-dark" href="?page=almacen" aria-expanded="false">
+                                <i class="icon-layers"></i>
+                                <span class="hide-menu">Almacen</span>
                             </a>
-                             <ul aria-expanded="false" class="collapse">
-                                <li>
-                                    <a href="?page=planes">Planes</a>
-                                </li>
-                                <li>
-                                    <a href="?page=cplanes">Clientes</a>
-                                </li>
-                               
-                              
-                            </ul>
+                           
                         </li>
                          <li>
-                            <a class="waves-effect waves-dark"  href="?page=meta" aria-expanded="false">
-                                <i class="icon-badge"></i>
-                                <span class="hide-menu">Metas</span>
+                            <a class="waves-effect waves-dark"  href="?page=produccion" aria-expanded="false">
+                                <i class="icon-chart"></i>
+                                <span class="hide-menu">Produccion</span>
                             </a>
                              
                         </li>
                          <li>
-                            <a class="waves-effect waves-dark"  href="?page=agenda" aria-expanded="false">
-                                <i class="icon-calender"></i>
-                                <span class="hide-menu">Calendario</span>
+                            <a class="waves-effect waves-dark"  href="?page=trabajo" aria-expanded="false">
+                                <i class="icon-docs"></i>
+                                <span class="hide-menu">Orden de Trabajo</span>
+                            </a>
+                            
+                            
+                        </li>
+                          <li>
+                            <a class="waves-effect waves-dark"  href="?page=reportes" aria-expanded="false">
+                                <i class="icon-printer"></i>
+                                <span class="hide-menu">Reportes</span>
                             </a>
                             
                             
@@ -296,20 +299,11 @@
                        
                         
                     
-                       
-                          <li>
-                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="icon-settings"></i>
-                                <span class="hide-menu">Configuracion</span>
+                        <li>
+                            <a class="waves-effect waves-dark" href="index.php" aria-expanded="false">
+                                <i class="icon-logout"></i>
+                                <span class="hide-menu">Salir</span>
                             </a>
-                             <ul aria-expanded="false" class="collapse">
-                                <li>
-                                    <a href="#">Agregar usuario</a>
-                                </li>
-                                <li>
-                                    <a href="#">Cambiar password</a>
-                                </li>
-                            </ul>
                         </li>
                   
                      
@@ -347,7 +341,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer">
-            © 2020 Nework
+            © 2020 Turbos
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
