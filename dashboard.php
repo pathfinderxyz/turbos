@@ -70,7 +70,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon.png">
-    <title>Dashboard | Nework</title>
+    <title>Dashboard | Turbos</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="assets/node_modules/morrisjs/morris.css" rel="stylesheet">
