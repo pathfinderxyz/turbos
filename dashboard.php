@@ -52,6 +52,10 @@
                 $file = 'trabajo/trabajo.php';   
             }elseif ($_GET['page'] == 'reportes') {
                 $file = 'reportes/reportes.php';   
+            }elseif ($_GET['page'] == 'usuario') {
+                $file = 'usuario/crear_usuario.php';   
+            }elseif ($_GET['page'] == 'listusuario') {
+                $file = 'usuario/listado_usuario.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -175,27 +179,34 @@
                                     <li>
                                         <div class="message-center ">
                                             <!-- Message -->
-                                            <a href="javascript:void(0)">
+                                            <a href="?page=usuario">
                                                 <i class="icon-plus"></i>
                                                 <div class="mail-contnet ">
                                                     <h6>Crear usuario</h6>  </div>
                                             </a>
+                                             <a href="?page=listusuario">
+                                                <i class="icon-menu"></i>
+                                                <div class="mail-contnet">
+                                                    <h6>Listado de usuario</h6>  </div>
+                                            </a>
                                             <!-- Message -->
                                              <a href="javascript:void(0)">
-                                                <i class="icon-reload"></i>
+                                                <i class="icon-user"></i>
                                                 <div class="mail-contnet">
-                                                    <h6>Cambiar contraseña</h6>  </div>
+                                                    <h6>Crear perfil de usuario</h6>  </div>
                                             </a>
+                                            <a href="javascript:void(0)">
+                                                <i class="icon-people"></i>
+                                                <div class="mail-contnet">
+                                                    <h6>Perfiles de usuarios</h6>  </div>
+                                            </a>
+                                           
                                            <a href="javascript:void(0)">
                                                 <i class="icon-reload"></i>
                                                 <div class="mail-contnet">
                                                     <h6>Cambiar Privilegios</h6>  </div>
                                             </a>
-                                             <a href="javascript:void(0)">
-                                                <i class="icon-close"></i>
-                                                <div class="mail-contnet">
-                                                    <h6>Eliminar funciones</h6>  </div>
-                                            </a>
+                                             
                                             <!-- Message -->
                                            
                                             <!-- Message -->
@@ -253,52 +264,106 @@
                           
                         </li>
                         <li>
-                            <a class="waves-effect waves-dark" href="?page=recepcion" aria-expanded="false">
+                            <a class="has-arrow waves-effect waves-dark" href="?page=recepcion" aria-expanded="false">
                                 <i class="icon-note"></i>
                                 <span class="hide-menu">Recepcion
                                     <!--<span class="badge badge-pill badge-cyan ml-auto">4</span>-->
                                 </span>
                             </a>
+                             <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="#">Añadir orden</a>
+                                </li>
+                                <li>
+                                    <a href="#">Buscar orden</a>
+                                </li>
+                                <li>
+                                    <a href="#">Configuracion</a>
+                                </li>
+                              
+                            </ul>
                            
                         </li>
                                            
                        
                         
                           <li>
-                            <a class="waves-effect waves-dark" href="?page=almacen" aria-expanded="false">
+                            <a class="has-arrow waves-effect waves-dark" href="?page=almacen" aria-expanded="false">
                                 <i class="icon-layers"></i>
                                 <span class="hide-menu">Almacen</span>
                             </a>
+                             <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="#">Stock</a>
+                                </li>
+                                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Configuracion</a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li>
+                                            <a href="javascript:void(0)">Minimos</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Alertas</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Bodegas</a>
+                                        </li>
+                                        
+                                    </ul>
+                                 
+                              
+                            </ul>
                            
                         </li>
                          <li>
-                            <a class="waves-effect waves-dark"  href="?page=produccion" aria-expanded="false">
+                            <a class="has-arrow waves-effect waves-dark"  href="?page=produccion" aria-expanded="false">
                                 <i class="icon-chart"></i>
                                 <span class="hide-menu">Produccion</span>
                             </a>
+                              <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="#">Ordenes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Turbos</a>
+                                </li>
+                                <li>
+                                    <a href="#">Configuracion</a>
+                                </li>
+                              
+                            </ul>
                              
                         </li>
                          <li>
-                            <a class="waves-effect waves-dark"  href="?page=trabajo" aria-expanded="false">
+                            <a class="has-arrow waves-effect waves-dark"  href="?page=trabajo" aria-expanded="false">
                                 <i class="icon-docs"></i>
-                                <span class="hide-menu">Orden de Trabajo</span>
+                                <span class="hide-menu">Seguimiento</span>
                             </a>
-                            
+                               <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="#">Status ordenes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Turbos Stock</a>
+                                </li>
+                                <li>
+                                    <a href="#">Listado de turbos</a>
+                                </li>
+                              
+                            </ul>
                             
                         </li>
                           <li>
-                            <a class="waves-effect waves-dark"  href="?page=reportes" aria-expanded="false">
+                            <a class="has-arrow waves-effect waves-dark"  href="?page=reportes" aria-expanded="false">
                                 <i class="icon-printer"></i>
                                 <span class="hide-menu">Reportes</span>
                             </a>
-                            
-                            
+                            <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="#">Material solicitado</a>
+                                </li>
+                            </ul>
                         </li>
 
-                       
-                       
-                        
-                    
                         <li>
                             <a class="waves-effect waves-dark" href="index.php" aria-expanded="false">
                                 <i class="icon-logout"></i>

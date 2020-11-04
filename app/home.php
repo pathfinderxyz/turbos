@@ -69,8 +69,9 @@
                                 <table class="table table-hover no-wrap">
                                     <thead>
                                         <tr>
-                                            <th class="text-center"># Orden</th>
-                                            <th>clientes</th>
+                                            <th># Orden de trabajo</th>
+                                            <th>Operario</th>
+                                            <th>Cubiculo</th>
                                             <th>Tipo de reparacion</th>
                                             
                                         </tr>
@@ -79,11 +80,13 @@
                                        <tr>
                                             <td>321</td>
                                             <td>Jose Carvajal</td>
+                                            <td>2-A</td>
                                             <td>Reparacion mayor</td>
                                         </tr>
                                         <tr>
                                             <td>324</td>
                                             <td>Rafael Mendoza</td>
+                                            <td>65-A</td>
                                             <td>Intermedia</td>
                                         </tr>  
                                        
