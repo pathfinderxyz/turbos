@@ -11,7 +11,7 @@
                             
                             <?php  
                                   if ($_SESSION['rol'] == 'admin') {
-                                     echo '<button type="button" class="btn btn-danger d-none d-lg-block m-l-15"><i class="icon-plus"></i> Añadir Orden de entrada</button>';
+                                     echo '<a href="?page=recepcion"> <button type="button" class="btn btn-danger d-none d-lg-block m-l-15"><i class="icon-plus"></i> Añadir Orden de entrada</button></a>';
                                          }
                                  ?>
                         </div>

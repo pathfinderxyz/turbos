@@ -17,21 +17,17 @@
         $_SESSION['rol'] = $info['rol'];
         $_SESSION['id']=$info['id'];
         $_SESSION['nombre']=$info['nombre'];
-        $_SESSION['apellido']=$info['apellido'];
-        $_SESSION['fecha']=$info['fecha'];
-        $_SESSION['correo']=$info['correo'];
-        $_SESSION['telefono']=$info['telefono'];
-        $_SESSION['pais']=$info['pais'];
-         $_SESSION['patrocinador']=$info['patrocinador'];
-         $_SESSION['id_refer_padre']=$info['id_refer_padre'];
+        $_SESSION['activo']=$info['activo'];
         
     }
+
+
     
     $file = "";//Vista a cargar
     $m_menu = "";
     
     //Control peticiones por rol
-    if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'referido' ) { //lo que hace aqui es preguntar :
+    if ($_SESSION['activo'] == 'si') { //lo que hace aqui es preguntar :
           // si el usuario es tu, da o su entonces si lo que se devolvio por parametros get fue page = xxxxxx entonces llevalo alla 
         if (isset($_GET['page'])) {
             if ($_GET['page'] == 'registrar') {
@@ -56,11 +52,36 @@
                 $file = 'usuario/crear_usuario.php';   
             }elseif ($_GET['page'] == 'listusuario') {
                 $file = 'usuario/listado_usuario.php';   
+            }elseif ($_GET['page'] == 'crearperfil') {
+                $file = 'usuario/crear_perfil.php';   
+            }elseif ($_GET['page'] == 'listperfil') {
+                $file = 'usuario/listado_perfiles.php';   
+            }elseif ($_GET['page'] == 'recepcion') {
+                $file = 'recepcion/recepcion.php';   
+            }elseif ($_GET['page'] == 'ordenes_ent') {
+                $file = 'recepcion/ver_ordenes.php';   
+            }elseif ($_GET['page'] == 'cubiculos') {
+                $file = 'recepcion/cubiculo.php';   
+            }elseif ($_GET['page'] == 'operarios') {
+                $file = 'recepcion/operario.php';   
+            }elseif ($_GET['page'] == 'crear_cubi') {
+                $file = 'recepcion/crear_cubiculo.php';   
             }
         }else{
             $file = 'inicio.php';  
         }
     }
+
+
+    $sqlperfil = pg_query("SELECT * from perfiles where nombre='recepcionista'");
+    $rowperfil = pg_fetch_assoc($sqlperfil);
+    $recepcion= $rowperfil['recepcion'];
+    $produccion= $rowperfil['produccion'];
+    $almacen= $rowperfil['almacen'];
+    $produccion= $rowperfil['seguimiento'];
+    $reportes= $rowperfil['reportes'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,12 +186,14 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- ============================================================== -->
                         <!-- Comment -->
-                      
+                       <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo'
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-settings"></i>
                                 <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                             </a>
-
+                            
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
                                 <ul>
                                     <li>
@@ -190,22 +213,18 @@
                                                     <h6>Listado de usuario</h6>  </div>
                                             </a>
                                             <!-- Message -->
-                                             <a href="javascript:void(0)">
+                                             <a href="?page=crearperfil">
                                                 <i class="icon-user"></i>
                                                 <div class="mail-contnet">
                                                     <h6>Crear perfil de usuario</h6>  </div>
                                             </a>
-                                            <a href="javascript:void(0)">
+                                            <a href="?page=listperfil">
                                                 <i class="icon-people"></i>
                                                 <div class="mail-contnet">
                                                     <h6>Perfiles de usuarios</h6>  </div>
                                             </a>
                                            
-                                           <a href="javascript:void(0)">
-                                                <i class="icon-reload"></i>
-                                                <div class="mail-contnet">
-                                                    <h6>Cambiar Privilegios</h6>  </div>
-                                            </a>
+                                          
                                              
                                             <!-- Message -->
                                            
@@ -215,8 +234,11 @@
                                     </li>
                                     
                                 </ul>
-                            </div>
-                        </li>
+                            </div>      
+                       
+                        </li>';
+                                         }
+                                 ?>  
                         <!-- ============================================================== -->
                         <!-- End Comment -->
                         <!-- ============================================================== -->
@@ -263,6 +285,9 @@
                             </a>
                           
                         </li>
+                        <?php  
+                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'recepcionista') {
+                                     echo' 
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="?page=recepcion" aria-expanded="false">
                                 <i class="icon-note"></i>
@@ -272,21 +297,32 @@
                             </a>
                              <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="#">Añadir orden</a>
+                                    <a href="?page=recepcion">Añadir orden</a>
                                 </li>
                                 <li>
-                                    <a href="#">Buscar orden</a>
+                                    <a href="?page=ordenes_ent">Ordenes</a>
                                 </li>
-                                <li>
-                                    <a href="#">Configuracion</a>
-                                </li>
+                                <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Configuracion</a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li>
+                                            <a href="?page=cubiculos">Cubiculos</a>
+                                        </li>
+                                        <li>
+                                            <a href="?page=operarios">Operarios</a>
+                                        </li>
+                                       
+                                    </ul>
+                                 
                               
                             </ul>
                            
-                        </li>
-                                           
+                        </li>  ';
+                                         }
+                                 ?>        
                        
-                        
+                        <?php  
+                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'almacenista') {
+                                     echo'
                           <li>
                             <a class="has-arrow waves-effect waves-dark" href="?page=almacen" aria-expanded="false">
                                 <i class="icon-layers"></i>
@@ -313,7 +349,12 @@
                               
                             </ul>
                            
-                        </li>
+                        </li>';
+                                         }
+                                 ?> 
+                         <?php  
+                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'operario') {
+                                     echo'          
                          <li>
                             <a class="has-arrow waves-effect waves-dark"  href="?page=produccion" aria-expanded="false">
                                 <i class="icon-chart"></i>
@@ -332,7 +373,12 @@
                               
                             </ul>
                              
-                        </li>
+                        </li>';
+                                         }
+                                 ?>
+                          <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo'        
                          <li>
                             <a class="has-arrow waves-effect waves-dark"  href="?page=trabajo" aria-expanded="false">
                                 <i class="icon-docs"></i>
@@ -351,7 +397,12 @@
                               
                             </ul>
                             
-                        </li>
+                        </li>';
+                                         }
+                                 ?>
+                              <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo'     
                           <li>
                             <a class="has-arrow waves-effect waves-dark"  href="?page=reportes" aria-expanded="false">
                                 <i class="icon-printer"></i>
@@ -362,7 +413,9 @@
                                     <a href="#">Material solicitado</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>';
+                                         }
+                                 ?>
 
                         <li>
                             <a class="waves-effect waves-dark" href="index.php" aria-expanded="false">
@@ -451,6 +504,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+    <script src="dist/js/pages/jquery.PrintArea.js" type="text/JavaScript"></script>
     <!-- end - This is for export functionality only -->
     <script>
         $(function () {
