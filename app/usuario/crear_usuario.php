@@ -1,11 +1,9 @@
+<?php
+include '../../coneccion/coneccion.php';
+
+?>
 <body class="skin-default card-no-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
    
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <br><section id="wrapper">
         
                 <div class="row">
@@ -36,13 +34,13 @@
                                         <div class="form-group">
                                         <label for="rol">Elegir Perfil</label>
                                         <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="perfil" id="perfil" required="">
-                                                
-                                               <option value=""></option>
-                                               <option value="Administrador">Administrador</option>
-                                               <option value="Operario">Operario</option>
-                                               <option value="Recepcionista">Recepcionista</option> 
-                                               <option value="Almacenista">Almacenista</option>
-                                               
+                                                <?php    
+                                                      echo '<option value="ninguno"></option>'; 
+                                                       $sql = pg_query("SELECT * from perfiles");
+                                                      while($row = pg_fetch_assoc($sql)){
+                                                       echo '<option>'.$row["nombre"];
+                                                  }
+                                                ?>
                                                
                                         </select>
                                         </div>
