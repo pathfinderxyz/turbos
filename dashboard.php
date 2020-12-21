@@ -88,6 +88,14 @@
                 $file = 'almacen/new_salida.php';   
             }elseif ($_GET['page'] == 'formatoni') {
                 $file = 'produccion/formato_ni.php';   
+            }elseif ($_GET['page'] == 'ordenseg') {
+                $file = 'seguimiento/ordeneseg.php';   
+            }elseif ($_GET['page'] == 'turbos_seg') {
+                $file = 'seguimiento/turbos_seg.php';   
+            }elseif ($_GET['page'] == 'turbosinc') {
+                $file = 'seguimiento/turbosinc.php';   
+            }elseif ($_GET['page'] == 'matesol') {
+                $file = 'reportes/materialsolicitado.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -136,6 +144,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 <style type="text/css">
 .topbar .navbar-collapse {
@@ -418,13 +427,13 @@
                             </a>
                                <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="#">Status ordenes</a>
+                                    <a href="?page=ordenseg">Status ordenes</a>
                                 </li>
                                 <li>
-                                    <a href="#">Turbos Stock</a>
+                                    <a href="?page=turbos_seg">Turbos Stock</a>
                                 </li>
                                 <li>
-                                    <a href="#">Listado de turbos</a>
+                                    <a href="?page=turbosinc">Turbos Incompletos</a>
                                 </li>
                               
                             </ul>
@@ -442,7 +451,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="#">Material solicitado</a>
+                                    <a href="?page=matesol">Material solicitado</a>
                                 </li>
                             </ul>
                         </li>';
@@ -537,10 +546,15 @@
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
+      <!-- Chart JS -->
+    <script src="assets/node_modules/Chart.js/Chart.min.js"></script>
+    <script src="assets/node_modules/Chart.js/chartjs.init.js"></script>
+
     <script src="dist/js/pages/jquery.PrintArea.js" type="text/JavaScript"></script>
     <!-- end - This is for export functionality only -->
     <script>
         $(function () {
+            
             $('#myTable').DataTable();
             var table = $('#example').DataTable({
                 "columnDefs": [{
@@ -588,6 +602,24 @@
             });
             $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
         });
+
+        new Chart(document.getElementById("chart22"),
+        {
+            "type":"bar",
+            "data":{"labels":["Operaror 1","Operaror 2","Operaror 3","Operaror 4","Operaror 5","Operaror 6"],
+            "datasets":[{
+                            "label":"Cantidad de material solicitado",
+                            "data":[65,59,80,81,56,55],
+                            "fill":false,
+                            "backgroundColor":["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)"],
+                            "borderColor":["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)"],
+                            "borderWidth":1}
+                        ]},
+            "options":{
+                "scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}
+            }
+        });
+
 
     </script>
     
