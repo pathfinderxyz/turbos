@@ -32,7 +32,7 @@
                          <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Areas de trabajo</h4>
-                                <h6 class="card-subtitle">Estos son los cubiculos con sus asignaciones y disponibilidad</h6>
+                                <h6 class="card-subtitle">Estos son las areas de trabajo con sus asignaciones y disponibilidad</h6>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -62,7 +62,7 @@
                                                      <div class="dropdown-menu animated flipInX">
                                                       
                                                         <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodal ('.$info['numero'].')" >Asignar operario </a>
-                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodaldelete ('.$info['numero'].')" >Liberar Cubiculo </a>
+                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodaldelete ('.$info['numero'].')" >Liberar area de trabajo </a>
                                                    
                                                     </div>
                                                     </div>
@@ -94,7 +94,7 @@
                                                      <div class="modal-dialog" role="document">
                                                          <div class="modal-content">
                                                      <div class="modal-header">
-                                                          <h4 class="modal-title" >Liberar cubiculo</h4>
+                                                          <h4 class="modal-title" >Liberar area de trabajo</h4>
                                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                      </div>
                                                      <div class="modal-body">

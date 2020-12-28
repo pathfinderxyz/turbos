@@ -18,7 +18,7 @@
                             <div class="card-body">
                                 <form action="app/recepcion/guardarorden.php" method="post">
                                     <div class="form-body">
-                                        <h4 class="card-title">Fecha: <?php echo date('d-M-Y') ;?> </h4>
+                                        <h4 class="card-title">Fecha: <?php echo date('d-m-Y') ;?> </h4>
                                          
                              <?php
                                  if ($_GET["registro"]=="fallido"){

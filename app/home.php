@@ -1,10 +1,19 @@
+<?php
+    include '../coneccion/coneccion.php';
+    $id = $_GET['id']; 
+
+    $usuario = $_SESSION['usuario'];
+    $sql = pg_query("SELECT * FROM ordenes_trabajo");
+    $row = pg_num_rows($sql);  
+ ?>                       
+                        
  <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                       <strong><h4 class="text-themecolor">Inicio </h4></strong> 
+                       <strong><h4 class="text-themecolor">Bienvenido <?php echo $_SESSION['usuario'] ?> </h4></strong> 
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
@@ -18,51 +27,84 @@
                     </div>
                 </div>
                 
-                 <div class="row">
-                    <!-- Column -->
+                 <?php  
+                    if ($_SESSION['rol'] == 'admin') {
+                    echo'      
                     
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Ordenes de trabajo</h5>
-                                <div class="steamline m-t-40">
-                                    <div class="sl-item">
-                                        <div class="sl-left bg-success"> <i class="ti-user"></i></div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">Operador 1<span class="sl-date"> 6pm</span></div>
-                                            <div class="desc">con jorge perez </div>
-                                        </div>
-                                    </div>
-                                    <div class="sl-item">
-                                        <div class="sl-left bg-dark"> <i class="ti-user"></i></div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">Operador 2<span class="sl-date"> 6pm</span></div>
-                                            <div class="desc">con jorge perez </div>
-                                        </div>
-                                    </div>
-                                    <div class="sl-item">
-                                        <div class="sl-left bg-info"> <i class="ti-user"></i></div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">Operador 3 <span class="sl-date"> 6pm</span></div>
-                                            <div class="desc">con jorge perez </div>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-lg-6">
+                 <div class="row">
+                    
+                    <div class="col-lg-12">
                         <div class="card">
                          
                             <div class="card-body bg-light">
                                 <div class="row">
                                     <div class="col-6">
-                                        <h3>Noviembre 2020</h3>
-                                        <h5 class="font-light m-t-0">Reporte del mes</h5></div>
+                                        
+                                        <h3 class="font-light m-t-0">Reporte del mes '.date('M').'</h3></div>
                                     <div class="col-6 align-self-center display-6 text-right">
-                                        <h2 class="text-success">2 Recepciones</h2></div>
+                                        <h2 class="text-success">'.$row.' Orden</h2></div>
+                                </div>
+                            </div>
+                             <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                                <th># Orden</th>
+                                                <th>Cliente</th>
+                                                <th>Tipo de Reparacion</th>
+                                                <th>Fecha entrega</th>
+                                                <th>Area de trabajo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>';?>
+                                            <?php
+                                            if ($row) {
+                                                while ($info = pg_fetch_assoc($sql)) {
+                                                    
+                                            echo '<tr>
+                                                  
+                                                <td>'.$info['n_orden'].'</td>
+                                               
+                                                <td>'.$info['cliente'].'</td>
+                                               
+                                                <td>'.$info['tipo_rep'].'</td>
+                                                <td>'.$info['fecha_entrega'].'</td>
+                                                <td>'.$info['cubiculo'].'</td>
+                                                
+
+                                               </tr>';
+                                             }
+                                               }else{
+
+                                                }
+                                             ?><?php echo '
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                 </div>';} ?>
+
+                 <?php  
+                    if ($_SESSION['rol'] == 'operario') {
+                        $usuario = $_SESSION['usuario'];
+                        $sql = pg_query("SELECT * FROM ordenes_trabajo where operador = '$usuario'");
+                        $row = pg_num_rows($sql);  
+                        while ($info = pg_fetch_assoc($sql)) {
+                      echo'
+                 <div class="row">
+                    
+                    <div class="col-lg-12">
+                        <div class="card">
+                         
+                            <div class="card-body bg-light">
+                                <div class="row">
+                                    <div class="col-6">
+                                        
+                                        <h3 class="font-light m-t-0">Reporte del mes '.date('M').'</h3></div>
+                                    <div class="col-6 align-self-center display-6 text-right">
+                                        <h2 class="text-success">'.$row.' Orden</h2></div>
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -70,29 +112,24 @@
                                     <thead>
                                         <tr>
                                             <th># Orden de trabajo</th>
-                                            <th>Operario</th>
-                                            <th>Cubiculo</th>
+                                            <th>Area de trabajo</th>
+                                            <th>Cliente</th>
+                                            <th>Fecha</th>
                                             <th>Tipo de reparacion</th>
-                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                        <tr>
-                                            <td>321</td>
-                                            <td>Jose Carvajal</td>
-                                            <td>2-A</td>
-                                            <td>Reparacion mayor</td>
+                                                <td>'.$info['n_orden'].'</td>
+                                                <td>'.$info['cubiculo'].'</td>
+                                                <td>'.$info['cliente'].'</td>
+                                                <td>'.$info['fecha_entrega'].'</td>
+                                                <td>'.$info['tipo_rep'].'</td>        
                                         </tr>
-                                        <tr>
-                                            <td>324</td>
-                                            <td>Rafael Mendoza</td>
-                                            <td>65-A</td>
-                                            <td>Intermedia</td>
-                                        </tr>  
                                        
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-            </div>
+                 </div>' ; }}?>

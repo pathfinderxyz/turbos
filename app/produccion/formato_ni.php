@@ -10,6 +10,15 @@
     border: 1px solid #aeb0b3 !important;
     padding: 2px !important;
     }
+    .icheck-list {
+    float: left;
+    padding-right: 8px !important;
+    padding-top: 8px !important;
+    font-size: 11px !important;
+}
+    .icheck-list li label {
+    padding-left: 5px !important;
+   }
 
  </style>
 
@@ -351,12 +360,28 @@
                                                 <td class="clasetd" ><strong>Plato</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                   <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="platoac" >
-                                                   <option value=""></option>
-                                                    <option value="Sello">Sello</option>
-                                                    <option value="Ins baquela">Ins baquela</option>
-                                                    <option value="Otro">Otro</option>
-                                                  </select>
+                                                   
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="selloplato" value="sello" class="check">
+                                                                <label for="square-checkbox-1">Sello</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="baquetaplato" value="ins baquela" class="check">
+                                                                <label for="square-checkbox-1">Ins baquela</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="otroplato" value="otro" class="check">
+                                                                <label for="square-checkbox-1">Otro</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                
 
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
@@ -384,13 +409,33 @@
                                                  <tr>
                                                 <td class="clasetd" ><strong>Cuerpo</strong></td>
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                  <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="cuerpoac">
-                                                    <option value=""></option>
-                                                    <option value="Sello">Sello</option>
-                                                    <option value="Rectificar">Rectificar</option>
-                                                    <option value="Renurara">Renurara</option>
-                                                    <option value="soldar">soldar</option>
-                                                  </select>
+                                                     <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="sellocuerpo" value="sello" class="check">
+                                                                <label for="square-checkbox-1">Sello</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="rectificarcuerpo" value="rectificar" class="check">
+                                                                <label for="square-checkbox-1">Rectificar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="renuraracuerpo" value="ranurara" class="check">
+                                                                <label for="square-checkbox-1">Renurara</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="soldarcuerpo" value="soldar" class="check">
+                                                                <label for="square-checkbox-1">soldar</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                  
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                      <input type="text" name="cuerpoobs" class="form-control">
@@ -419,13 +464,33 @@
                                                 <td class="clasetd" ><strong>Turbina</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                  <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="turbinaac">
-                                                    <option value=""></option>
-                                                    <option value="Alabes">Alabes</option>
-                                                    <option value="Ranura">Ranura</option>
-                                                    <option value="Rectificar">Rectificar</option>
-                                                    <option value="Ali-Bal">Ali-Bal</option>
-                                                  </select>
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="alabestu" value="alabes" class="check">
+                                                                <label for="square-checkbox-1">Alabes</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="ranuratu" value="ranura" class="check">
+                                                                <label for="square-checkbox-1">Ranura</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="rectificartu" value="rectificar" class="check">
+                                                                <label for="square-checkbox-1">Rectificar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="alibaltu" value="alibal" class="check">
+                                                                <label for="square-checkbox-1">Ali-Bal</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                  
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                    <input type="text" name="turbinaobs" class="form-control">
@@ -454,13 +519,33 @@
                                                 <td class="clasetd" ><strong>Compresor</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                   <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="compresorac">
-                                                    <option value=""></option>
-                                                    <option value="Ajustar">Ajustar</option>
-                                                    <option value="Soldar">Soldar</option>
-                                                    <option value="de acientos">de acientos</option>
-                                                    <option value="Otro">Otro</option>
-                                                  </select>
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="ajustarcom" value="ajustar" class="check">
+                                                                <label for="square-checkbox-1">Ajustar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="soldarcom" value="soldar" class="check">
+                                                                <label for="square-checkbox-1">Soldar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="acientoscom" value="de acientos" class="check">
+                                                                <label for="square-checkbox-1">de acientos</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="otrocom" value="otro" class="check">
+                                                                <label for="square-checkbox-1">Otro</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                   
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                     <input type="text" name="compresorobs" class="form-control">
@@ -487,13 +572,32 @@
                                                 <td class="clasetd" ><strong>Caja escape</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                  <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="cajaescapeac">
-                                                    <option value=""></option>
-                                                    <option value="Barrenar">Barrenar</option>
-                                                    <option value="Refres roscas">Refres roscas</option>
-                                                    <option value="ajustar">ajustar</option>
-                                                    <option value="Otro">Otro</option>
-                                                  </select>
+                                                 <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="barrenarcc" value="barrenar" class="check">
+                                                                <label for="square-checkbox-1">Barrenar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="refrescc" value="refres roscas" class="check">
+                                                                <label for="square-checkbox-1">Refres roscas</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="ajustarcc" value="ajustar" class="check">
+                                                                <label for="square-checkbox-1">ajustar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="otrocc" value="otro" class="check">
+                                                                <label for="square-checkbox-1">Otro</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                    <input type="text" name="cajaescapeobs" class="form-control">
@@ -513,13 +617,33 @@
                                                 <td class="clasetd" ><strong>caja admision</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                  <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="cajaadmisionac">
-                                                   <option value=""></option>
-                                                    <option value="Barrenar">Barrenar</option>
-                                                    <option value="soldar boca">soldar boca</option>
-                                                    <option value="Refres rosca">Refres rosca</option>
-                                                    <option value="ajustar">ajustar</option>
-                                                  </select>
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="barrenarca" value="barrenar" class="check">
+                                                                <label for="square-checkbox-1">Barrenar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="soldarca" value="soldar roscas" class="check">
+                                                                <label for="square-checkbox-1">soldar boca</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="refresca" value="refres rosca" class="check">
+                                                                <label for="square-checkbox-1">Refres rosca</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="ajustarca" value="ajustar" class="check">
+                                                                <label for="square-checkbox-1">ajustar</label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                 
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                    <input type="text" name="cajaadmisionobs" class="form-control">
@@ -531,12 +655,28 @@
                                                 <td class="clasetd" ><strong>Protector calor</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                  <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="protectorcalorac">
-                                                   <option value=""></option>
-                                                    <option value="soldar">soldar</option>
-                                                    <option value="ajustar">ajustar</option>
-                                                    <option value="otro">otro</option>
-                                                  </select></strong></td>
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="barrenarpc" value="barrenar" class="check">
+                                                                <label for="square-checkbox-1">Barrenar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="soldarpc" value="soldar" class="check">
+                                                                <label for="square-checkbox-1">soldar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="ajustarpc" value="ajustar" class="check">
+                                                                <label for="square-checkbox-1">ajustar</label>
+                                                            </li>
+                                                        </ul>
+                                                     
+                                                    </div>
+                                                  </strong></td>
                                                 <td class="clasetd"><strong>
                                                    <input type="text" name="protectorcalorobs" class="form-control">
                                                 </strong></td>
@@ -547,12 +687,28 @@
                                                 <td class="clasetd" ><strong>Abrazaderas</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                  <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="abrazaderasac">
-                                                   <option value=""></option>
-                                                    <option value="Cambio tornillo">Cambio tornillo</option>
-                                                    <option value="soldar">soldar</option>
-                                                    <option value="cambio de tuercas">cambio de tuercas</option>
-                                                  </select>
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="tornilloabra" value="cambio tornillo" class="check">
+                                                                <label for="square-checkbox-1">Cambio tornillo</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="soldarabra" value="soldar" class="check">
+                                                                <label for="square-checkbox-1">soldar</label>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="cambioabra" value="cambio de tuercas" class="check">
+                                                                <label for="square-checkbox-1">cambio de tuercas</label>
+                                                            </li>
+                                                        </ul>
+                                                     
+                                                    </div>
+                                                 
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                    <input type="text" name="abrazaderasobs" class="form-control">
@@ -564,11 +720,16 @@
                                                 <td class="clasetd" ><strong>Retenes</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                   <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="retenesac">
-                                                   <option value=""></option>
-                                                    <option value="otro">otro</option>
-                                                    
-                                                  </select>
+                                                   <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="otroret" value="otro" class="check">
+                                                                <label for="square-checkbox-1">Otro</label>
+                                                            </li>
+                                                        </ul>
+                                                       
+                                                     
+                                                    </div>
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                   <input type="text" name="retenesobs" class="form-control">
@@ -580,11 +741,16 @@
                                                 <td class="clasetd" ><strong>Geometria</strong></td>
                                                
                                                 <td class="clasetd  text-center " colspan="2"><strong>
-                                                   <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="geometriaac">
-                                                   <option value=""></option>
-                                                    <option value="Otro">Otro</option>
-                                                    
-                                                  </select>
+                                                    <div class="input-group">
+                                                        <ul class="icheck-list">
+                                                            <li>
+                                                                <input type="checkbox" name="otrogeo" value="otro" class="check">
+                                                                <label for="square-checkbox-1">Otro</label>
+                                                            </li>
+                                                        </ul>
+                                                       
+                                                     
+                                                    </div>
                                                 </strong></td>
                                                 <td class="clasetd"><strong>
                                                   <input type="text" name="geometriaobs" class="form-control">
@@ -593,7 +759,7 @@
                                             </tr>
                                           <!-- //////////////////////////////////////////////////////////////////////-->
                                             <tr>
-                                                <td class="clasetd text-center" colspan="4" style="background: #cbcfe0;"><strong>Refaccion</strong></td>
+                                                <td class="clasetd text-center" colspan="4" style="background: #cbcfe0;"><strong>KIT</strong></td>
                                              </tr> 
                                               <!-- //////////////////////////////////////////////////////////////////////-->
                                             <tr>

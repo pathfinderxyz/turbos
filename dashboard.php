@@ -96,6 +96,14 @@
                 $file = 'seguimiento/turbosinc.php';   
             }elseif ($_GET['page'] == 'matesol') {
                 $file = 'reportes/materialsolicitado.php';   
+            }elseif ($_GET['page'] == 'mostrarni') {
+                $file = 'produccion/mostrarNI.php';   
+            }elseif ($_GET['page'] == 'updateni') {
+                $file = 'produccion/update_ni.php';   
+            }elseif ($_GET['page'] == 'repfinalni') {
+                $file = 'produccion/reportefinal.php';   
+            }elseif ($_GET['page'] == 'produccion_ope') {
+                $file = 'produccion/ordenes_ope.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -133,6 +141,7 @@
     <link href="assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/pages/form-icheck.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="dist/css/pages/dashboard1.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
@@ -396,7 +405,7 @@
                                          }
                                  ?> 
                          <?php  
-                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'operario') {
+                                  if ($_SESSION['rol'] == 'admin') {
                                      echo'          
                          <li>
                             <a class="has-arrow waves-effect waves-dark"  href="?page=produccion" aria-expanded="false">
@@ -417,6 +426,28 @@
                         </li>';
                                          }
                                  ?>
+                          <?php  
+                                  if ($_SESSION['rol'] == 'operario') {
+                                     echo'          
+                         <li>
+                            <a class="has-arrow waves-effect waves-dark"  href="?page=produccion" aria-expanded="false">
+                                <i class="icon-chart"></i>
+                                <span class="hide-menu">Produccion</span>
+                            </a>
+                              <ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="?page=produccion_ope">Orden de trabajo</a>
+                                </li>
+                                <li>
+                                    <a href="?page=turbos">Ver Turbos</a>
+                                </li>
+                                
+                              
+                            </ul>
+                             
+                        </li>';
+                                         }
+                                 ?>       
                           <?php  
                                   if ($_SESSION['rol'] == 'admin') {
                                      echo'        
@@ -619,9 +650,22 @@
                 "scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}
             }
         });
-
+         
 
     </script>
+    <script>
+    $(document).ready(function() {
+        $("#print").click(function() {
+            var mode = 'iframe'; //popup
+            var close = mode == "popup";
+            var options = {
+                mode: mode,
+                popClose: close
+            };
+            $("div.printableArea").printArea(options);
+        });
+    });
+</script>
     
 </body>
 

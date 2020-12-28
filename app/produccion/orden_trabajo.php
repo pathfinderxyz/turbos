@@ -1,14 +1,18 @@
 <?php 
-     
+    
     include '../../coneccion/coneccion.php';
     $id = $_GET['id']; 
-
-     
-    $sql = pg_query("SELECT * FROM ordenes_trabajo");
     
-    $row = pg_num_rows($sql);
+
+        $sql = pg_query("SELECT * FROM ordenes_trabajo");
+        $row = pg_num_rows($sql);    
     
 ?>
+<style type="text/css">
+.ocultar{
+    display: none !important;
+}
+</style>
   <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
@@ -45,6 +49,17 @@
                                             <?php
                                             if ($row) {
                                                 while ($info = pg_fetch_assoc($sql)) {
+                                                    if ($info['rep_final'] == 'si') {
+                                                     $ocultamenu = 'ocultar';
+                                                 }else{
+                                                     $ocultamenu = '';
+                                                 } 
+
+                                                  if ($info['rep_final'] <> 'si') {
+                                                     $ocultamenu2 = 'ocultar';
+                                                 }else{
+                                                     $ocultamenu2 = '';
+                                                 }   
                                             echo '<tr>
                                                    <td>
                                              
@@ -56,7 +71,8 @@
                                                       
                                                         <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodal ('.$info['n_orden'].')" >Cambiar Status </a>
                                                         <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="# ('.$info['n_orden'].')" >Requisicion de material</a>
-                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="# ('.$info['n_orden'].')" >Actualizar Formato NI</a>
+                                                        <a class="dropdown-item '.$ocultamenu.'" href="?page=updateni&idorden='.$info['n_orden'].'")" >Actualizar Formato NI</a>
+                                                        <a class="dropdown-item '.$ocultamenu2.'" href="?page=repfinalni&idorden='.$info['n_orden'].'")" >Ver Formato NI</a>
                                                         <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="imprimir ('.$info['n_orden'].')" > Imprimir </a>
                                                         
                                                     </div>

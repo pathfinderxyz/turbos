@@ -9,7 +9,7 @@ $row2 = pg_fetch_assoc($sql2);
   echo '<form action="app/recepcion/liberar_cubi_2.php" method="post">
       
         <div class="form-group">
-         <label for="recipient-name" class="control-label">¿Esta seguro que desea liberar el cubiculo <strong> #'.$row2["numero"].'</strong>  ? </label>
+         <label for="recipient-name" class="control-label">¿Esta seguro que desea liberar el area de trabajo <strong> #'.$row2["numero"].'</strong>  ? </label>
        </div>
        
              <input type="hidden" name="num_cubi" value="'.$num_cubi.'">

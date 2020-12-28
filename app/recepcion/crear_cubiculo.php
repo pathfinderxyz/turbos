@@ -13,9 +13,9 @@
                     </div>
                      <div class="col-sm-6 col-xs-12">
                         <div class="card card-body">
-                            <h4 class="card-title" style="text-align: center;font-size: 22px;font-weight: 600;">Crear un nuevo cubiculo</h4><br>
+                            <h4 class="card-title" style="text-align: center;font-size: 22px;font-weight: 600;">Crear un nueva area de trabajo</h4><br>
                     
-                            <h5 class="card-subtitle">Introduzca los datos del cubiculo a crear</h5>
+                            <h5 class="card-subtitle">Introduzca los datos del area de trabajo a crear</h5>
                             <div class="row">
                                 
                                 <div class="col-sm-12 col-xs-12">
@@ -26,7 +26,7 @@
                                             <input type="number" class="form-control" name="num_cubi"  required>
                                         </div>
                                          <div class="form-group">
-                                            <label for="exampleInputName2"> Nombre del Cubiculo</label>
+                                            <label for="exampleInputName2"> Nombre del area de trabajo</label>
                                             <input type="text" class="form-control" name="nombre_cubi"  required>
                                         </div>
                                        

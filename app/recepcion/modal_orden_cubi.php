@@ -9,7 +9,7 @@ $num_orden = $_GET['orden'];
       
         
        <div class="form-group">
-          <label or="message-text" class="control-label">Cubiculos Disponibles</label>
+          <label or="message-text" class="control-label">Areas de trabajo Disponibles</label>
              <select  class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="cubiculo">'; 
              ?> 
               <?php    

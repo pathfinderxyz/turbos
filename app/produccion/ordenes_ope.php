@@ -1,12 +1,12 @@
 <?php 
-     
+    
     include '../../coneccion/coneccion.php';
     $id = $_GET['id']; 
-
-     
-    $sql = pg_query("SELECT * FROM ordenes_trabajo");
+    $usuario = $_SESSION['usuario'];
+    $sql = pg_query("SELECT * FROM ordenes_trabajo where operador = '$usuario'");
+    $row = pg_num_rows($sql);    
+   
     
-    $row = pg_num_rows($sql);
     
 ?>
 <style type="text/css">
@@ -22,13 +22,6 @@
                     <div class="col-md-5 align-self-center">
                         <h4 class="text-themecolor">Ordenes de Trabajo</h4>
                     </div>
-                    <div class="col-md-7 align-self-center text-right">
-                        <div class="d-flex justify-content-end align-items-center">
-                           
-                            <a href="?page=recepcion"><button type="button" class="btn btn-cyan d-none d-lg-block m-l-15">
-                                <i class="icon-plus"></i> Añadir Nueva Orden</button></a>
-                        </div>
-                    </div>
                 </div>
                
                 <div class="row">
@@ -36,8 +29,8 @@
                         
                          <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Ordenes de entrada</h4>
-                                <h6 class="card-subtitle">Estas son todas las ordenes de trabajo</h6>
+                                <h4 class="card-title">Ordenes de trabajo Asignadas</h4>
+                                <h6 class="card-subtitle">Estas son las ordenes de trabajo que tienes asignadas</h6>
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -50,29 +43,24 @@
                                                 <th>Tipo de Reparacion</th>
                                                 <th>Fecha entrega</th>
                                                 <th>Area de trabajo</th>
-                                                <th>Operador asignado</th>
-
-                                                
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             if ($row) {
                                                 while ($info = pg_fetch_assoc($sql)) {
-                                                 if ($info['formatoni'] == 'si') {
+                                                    if ($info['rep_final'] == 'si') {
                                                      $ocultamenu = 'ocultar';
                                                  }else{
                                                      $ocultamenu = '';
                                                  } 
 
-                                                  if ($info['formatoni'] <> 'si') {
+                                                  if ($info['rep_final'] <> 'si') {
                                                      $ocultamenu2 = 'ocultar';
                                                  }else{
                                                      $ocultamenu2 = '';
                                                  }   
-                                                     
-                                                    
-                                                   
                                             echo '<tr>
                                                    <td>
                                              
@@ -82,11 +70,11 @@
                                                      </button>
                                                      <div class="dropdown-menu animated flipInX">
                                                       
-                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodal ('.$info['n_orden'].')">Asignar area de trabajo </a>
-                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodaldelete ('.$info['n_orden'].')">Quitar area de trabajo</a>
-                                                        <a class="dropdown-item '.$ocultamenu.'" href="?page=formatoni&idorden='.$info['n_orden'].'">Llenar Formato NI </a>
-                                                        <a class="dropdown-item '.$ocultamenu2.'" href="?page=mostrarni&idorden='.$info['n_orden'].'">Ver Formato NI </a>
-                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="imprimir ('.$info['n_orden'].')"> Imprimir </a>
+                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="cargamodal ('.$info['n_orden'].')" >Cambiar Status </a>
+                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="# ('.$info['n_orden'].')" >Requisicion de material</a>
+                                                        <a class="dropdown-item '.$ocultamenu.'" href="?page=updateni&idorden='.$info['n_orden'].'")" >Actualizar Formato NI</a>
+                                                        <a class="dropdown-item '.$ocultamenu2.'" href="?page=repfinalni&idorden='.$info['n_orden'].'")" >Ver Formato NI</a>
+                                                        <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"  aria-haspopup="true" onClick="imprimir ('.$info['n_orden'].')" > Imprimir </a>
                                                         
                                                     </div>
                                                     </div>
@@ -98,7 +86,8 @@
                                                 <td>'.$info['tipo_rep'].'</td>
                                                 <td>'.$info['fecha_entrega'].'</td>
                                                 <td>'.$info['cubiculo'].'</td>
-                                                <td>'.$info['operador'].'</td>
+                                                <td>'.$info['status'].'</td>
+
                                                </tr>
                                                 <div>
                                                      <div class="modal bs-example-modal-lg" id="modalpeso" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
@@ -122,7 +111,7 @@
                                                      <div class="modal-dialog" role="document">
                                                          <div class="modal-content">
                                                      <div class="modal-header">
-                                                         <h4 class="modal-title" >Asigna area de trabajo</h4>
+                                                         <h4 class="modal-title" >Cambiar Status</h4>
                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                       </div>
                                                      <div class="modal-body">
@@ -184,7 +173,7 @@
             height:300,
             width:600
         };
-    $('#conte-modal').load('app/recepcion/modal_orden_cubi.php?orden='+modal, function() {
+    $('#conte-modal').load('app/produccion/modal_status.php?orden='+modal, function() {
         $('#modalclientes').modal({show:true});
     });    
     } 

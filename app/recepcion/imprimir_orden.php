@@ -12,6 +12,12 @@
 .clasetd {
    padding: 4px !important;
 }
+.taman{
+    font-size:10px !important;
+}
+.taman2{
+    font-size:12px !important;
+}
 </style>
 
 <div class="col-12">
@@ -19,16 +25,32 @@
               
                         <div class="card">
                             <div class="card-body">
-                                 <div class="row">
-                                <div class="col-md-6">
-                                  <h4><b>Fecha</b> <span class="pull-right"><?php echo $info['fecha_rec']; ?></span></h4>
+                                <div class="row">
+                                     <div class="col-md-6 text-left">
+                                     <img src="assets/images/lohoni.jpg" alt="homepage" class="dark-logo" />
+                                     </div>
+                                     
+                                     <div class="col-md-6 text-right">
+                                     <h6><b>Orden de trabajo</b> <span class="pull-right"></span></h6>
+                                        <p>#<?php echo $info['n_orden']; ?></p>
+                                     </div>
+                                 </div>
+                                <div class="row">
+                                <div class="col-md-5"><br><br>
+                                  <h6 class="taman2"><b>Fecha:</b> <span class="pull-right"><?php echo $info['fecha_rec']; ?></span></h6>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                  <h4><b>Orden</b> <span class="pull-right">#<?php echo $info['n_orden']; ?></span></h4>
+                                <div class="col-md-7 text-right">
+                                  <p class="taman">Blvd. San Felipe No 47-D Col Villa 
+                                    Posadas C.P. 72060 Puebla, Pue.<br>
+                                    Tels. 01(222)296 83 38, Ventas Directas 01(222)2300979<br>
+                                    LADA SIN COSTO 01 800 08 70 145<br>
+                                    Web:turbos.com.mx Email:ventasditsa@turbos.com.mx
+                                </p>
                                 </div>
-                            </div>
+                                
+                               </div>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                     <table class="table table-bordered">
                                        
                                         <tbody>
                                             <tr>
@@ -65,22 +87,21 @@
                                                 <td  class="clasetd" colspan="3"><strong>Observaciones:</strong> <?php echo $info['observaciones']; ?></td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                     </table>
                                      <div class="col-md-12">
-                                    
-                                    <div class="text-right">
-                                        <button id="print" class="btn btn-warning btn-outline" type="button"> <span><i class="icon-printer"></i> Imprimir</span> </button>
-                                    </div>
+                                         <div class="text-right">
+                                             <button id="print2" class="btn btn-warning btn-outline" type="button"> <span><i class="icon-printer"></i> Imprimir</span> </button>
+                                         </div>
+                                     </div>
                                 </div>
-                                </div>
-                            </div>
+                           </div>
                         </div>
                     </div>
                 </div>
 
 <script>
     $(document).ready(function() {
-        $("#print").click(function() {
+        $("#print2").click(function() {
             var mode = 'iframe'; //popup
             var close = mode == "popup";
             var options = {
