@@ -1,6 +1,6 @@
 <?php  
 	include '../../coneccion/coneccion.php';
-	//include "../../Errores/mostrar_errores.php";
+	include "../../Errores/mostrar_errores.php";
 
 
     $id_orden = $_POST['ido'];
