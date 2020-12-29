@@ -126,7 +126,7 @@
 	$soldarabra = $_POST['soldarabra'];
 	$cambioabra = $_POST['cambioabra'];
 	
-	$fecha = date ("d-m-y");
+	$fecha = date('Y-m-d');
 
 	$formatoni = 'si';
   
